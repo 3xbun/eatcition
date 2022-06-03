@@ -12,9 +12,9 @@
 
     <div id="app">
       <div v-if="loggedIn" id="main">
-        <div class="container">
-          <div id="footMatching">
-            {{title}}
+        <div id="footMatching">
+          <div class="container">
+            <h1>{{title}}</h1>
             <div class="type">
               <h1>1</h1>
               <ul>
@@ -31,8 +31,14 @@
               </ul>
             </div>
 
-            <input type="search" name="searchFood" id="searchFood" />
-            <input type="button" value="CONFIRM" />
+            <input
+              class="searchBar"
+              type="search"
+              name="searchFood"
+              id="searchFood"
+              placeholder="🔍 Search your favorite food. . ."
+            />
+            <input class="confirmBtn" type="button" value="CONFIRM" />
           </div>
         </div>
       </div>

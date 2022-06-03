@@ -1,7 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100;600&display=swap");
 * {
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: 'Prompt', sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+.searchBar {
+  width: 100%;
+  border-radius: 1em;
+  border: none;
+  font-size: inherit;
+  margin: 1em auto;
+  padding: .5em 1em;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin: 3em auto;
+}
+
+#footMatching {
+  background-color: #c24229;
+  color: #e1dcc9;
+  height: 100vh;
+  padding-top: 3em;
+}
+
+.container {
+  width: 85vw;
+  margin: auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.type, .delivery {
+  margin-top: 3em;
+}
+
+.type h1, .delivery h1 {
+  color: #17395c;
+  background-color: #e1dcc9;
+  width: 100%;
+  border-radius: 1em;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.type ul, .delivery ul {
+  margin-top: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.type ul li, .delivery ul li {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+  width: 48%;
+  background-color: white;
+  color: #17395c;
+  font-weight: bold;
+  border-radius: 1em;
+  padding: .5em 1em;
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.type ul li:hover, .delivery ul li:hover {
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.confirmBtn {
+  width: 100%;
+  border-radius: 1em;
+  font-size: 1em;
+  border: none;
+  background-color: #17395c;
+  color: #e1dcc9;
+  font-weight: bold;
+  padding: .5em 1em;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 /*# sourceMappingURL=main.css.map */
