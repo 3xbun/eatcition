@@ -5,6 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale= " />
     <title>กินไรยัง?</title>
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
-  <body></body>
+  <body>
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <div id="app">
+      <div v-if="loggedIn" id="main">
+        <div class="container">
+          <div id="footMatching">
+            {{title}}
+            <div class="type">
+              <h1>1</h1>
+              <ul>
+                <li>NEW FOOD</li>
+                <li>FOOD YOU LOVE</li>
+              </ul>
+            </div>
+
+            <div class="delivery">
+              <h1>2</h1>
+              <ul>
+                <li>DELIVERY</li>
+                <li>DINE OUT</li>
+              </ul>
+            </div>
+
+            <input type="search" name="searchFood" id="searchFood" />
+            <input type="button" value="CONFIRM" />
+          </div>
+        </div>
+      </div>
+
+      <div v-else id="login">
+        <h1>Login Page</h1>
+        <p>{{title}}</p>
+      </div>
+    </div>
+
+    <script src="./js/main.js"></script>
+  </body>
 </html>
