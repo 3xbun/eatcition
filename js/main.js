@@ -1,9 +1,9 @@
-const { createApp } = Vue;
+const { createApp, ref } = Vue;
 
 createApp({
   setup() {
-    const loggedIn = true;
-    const active = "profile";
+    const loggedIn = ref(true);
+    const active = ref("contact");
 
     return {
       loggedIn,

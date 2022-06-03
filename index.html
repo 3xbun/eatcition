@@ -44,8 +44,81 @@
         </div>
 
         <div v-else-if="active === 'profile'" id="profile">
-          <h1>Profile</h1>
+          <header>
+            <h1>Profile</h1>
+            <img
+              src="./img/placeholder.png"
+              alt="profile-img"
+              class="profileImg"
+            />
+            <p class="username">@yourCoolUsername</p>
+          </header>
+          <div class="profile-information container">
+            <table>
+              <tr>
+                <td>Email</td>
+                <td>mail@mail.com</td>
+              </tr>
+              <tr>
+                <td>Date of Birth</td>
+                <td>1 January 1999</td>
+              </tr>
+              <tr>
+                <td>Gender</td>
+                <td>Female</td>
+              </tr>
+              <tr>
+                <td>Food Allergies/Prohibited Foods</td>
+                <td>Seafood</td>
+              </tr>
+              <tr>
+                <td>Menu Preferences</td>
+                <td>Fried Chicken</td>
+              </tr>
+            </table>
+
+            <div class="editBtn">EDIT</div>
+          </div>
         </div>
+
+        <div v-else-if="active === 'contact'" id="contact">
+          <header>
+            <h1>Contacts</h1>
+          </header>
+
+          <h1 class="addFriend">Add Friend</h1>
+          <h1 class="myFriend">My Friends</h1>
+
+          <div class="container">
+            <table>
+              <tr>
+                <td><img src="./img/placeholder.png" /></td>
+                <td class="username">@janeDoe</td>
+                <td>/</td>
+              </tr>
+              <tr>
+                <td><img src="./img/placeholder.png" /></td>
+                <td class="username">@jamesK</td>
+                <td>/</td>
+              </tr>
+              <tr>
+                <td><img src="./img/placeholder.png" /></td>
+                <td class="username">@Scoot</td>
+                <td>/</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <footer>
+          <ul>
+            <li @click="active='contact'">👥</li>
+            <li>📊</li>
+            <li>🍴</li>
+            <li @click="active='foodMatch'">🍛</li>
+            <li @click="active='profile'">👤</li>
+          </ul>
+        </footer>
       </div>
 
       <div v-else id="login">
