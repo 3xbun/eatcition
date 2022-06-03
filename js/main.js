@@ -3,11 +3,11 @@ const { createApp } = Vue;
 createApp({
   setup() {
     const loggedIn = true;
-    const title = "Food Matching";
+    const active = "profile";
 
     return {
       loggedIn,
-      title,
+      active,
     };
   },
 }).mount("#app");
