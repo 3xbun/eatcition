@@ -2,12 +2,13 @@ const { createApp, ref, computed } = Vue;
 
 createApp({
   setup() {
-    const loggedIn = ref(false);
-    const active = ref("login");
-    const showFood = ref(false);
+    const loggedIn = ref(true);
+    const active = ref("log");
     let counter = ref(0);
     const one = ref("");
     const two = ref("");
+    const showFood = ref(false);
+    const showLog = ref(false);
     const showFriend = ref(false);
     const username = ref("");
     const res = ref("");
@@ -123,6 +124,7 @@ createApp({
       loginForm,
       res,
       filterRecFood,
+      showLog,
     };
   },
 }).mount("#app");

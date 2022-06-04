@@ -70,7 +70,7 @@
                         <h1>1</h1>
                         <ul>
                             <li class="active" @click="showFood = true">
-                                SURPISE ME
+                                SURPRISE ME
                             </li>
                             <li @click="one='newFood'" v-bind:class="{active: one==='newFood'}">NEW FOOD</li>
                             <li @click="one='foodYouLove'" v-bind:class="{active: one==='foodYouLove'}">FOOD YOU LOVE
@@ -167,6 +167,10 @@
             </div>
 
             <div v-else-if="active === 'log'" id="log">
+                <div class="logModal animate__animated animate__fadeIn animate__faster" v-if="showLog">
+                    <h1>Information Saved Succesfully</h1>
+                    <a href="#" class="close" @click="showLog=false"><i class="fa-solid fa-xmark"></i></a>
+                </div>
                 <header>
                     <div class="container">
                         <input v-model="res" class="searchBar" type="search" name="searchFood" id="searchFood"
@@ -202,7 +206,7 @@
                             <p class="menu-cost">0000THB</p>
                         </div>
                     </div>
-                    <input @click="active='foodMatch'" class="confirmBtn" type="button" value="CONFIRM" />
+                    <input @click="showLog=true; res=''" class="confirmBtn" type="button" value="CONFIRM" />
                 </div>
             </div>
 
@@ -275,7 +279,11 @@
 
                     <div class="forgot">forgot password?</div>
 
-                    <div class="btn buttonlogin" @click="signIn(loginForm.username, loginForm.password)">Log In
+                    <!-- <div class="btn buttonlogin" @click="signIn(loginForm.username, loginForm.password)">
+                        Log In
+                    </div> -->
+                    <div class="btn buttonlogin" @click="loggedIn=true; active='foodMatch'">
+                        Log In
                     </div>
                 </div>
 
