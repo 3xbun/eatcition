@@ -554,31 +554,17 @@ li.active {
   color: #c24229;
 }
 
-#login-signup .dot {
-  position: relative;
-  top: -400px;
-  left: -100px;
-  height: 700px;
-  width: 700px;
+#login-signup header {
   background-color: #c24229;
-  border-radius: 50%;
-  z-index: -1;
+  height: 20vh;
+  text-align: center;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-#login-signup .logo {
-  position: relative;
-  top: -800px;
-  left: -150px;
-  width: 100px;
-  z-index: 9;
-}
-
-#login-signup .food {
-  position: relative;
-  top: -800px;
-  width: 400px;
-  opacity: 0.1;
-  z-index: 99;
+#login-signup header .logo {
+  margin: auto;
+  height: 100%;
 }
 
 #login-signup .btn {
@@ -626,6 +612,7 @@ li.active {
 }
 
 #login-signup .loginModal {
+  max-width: 600px;
   position: absolute;
   top: 20vh;
   left: 50%;
