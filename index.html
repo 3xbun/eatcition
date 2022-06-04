@@ -111,7 +111,7 @@
                     </div>
 
                     <input class="searchBar" type="search" name="searchFood" id="searchFood"
-                        placeholder="🔍 Search your favorite food. . ." />
+                        placeholder="🔍 Search your favorite food/location . . ." />
                     <input class="confirmBtn" type="button" value="CONFIRM" @click="showFood=true" />
                 </div>
             </div>
@@ -313,6 +313,8 @@
         </div>
 
         <div v-else id="login-signup">
+
+            {{data}}
             <header>
                 <img class="logo" src="./img/logo.png"></img>
             </header>
@@ -396,6 +398,7 @@
     </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./js/user.js"></script>
     <script src="./js/food.js"></script>
     <script src="./js/main.js"></script>
