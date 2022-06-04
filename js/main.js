@@ -3,7 +3,7 @@ const { createApp, ref, computed } = Vue;
 createApp({
   setup() {
     const loggedIn = ref(true);
-    const active = ref("foodMatch");
+    const active = ref("stat");
     const showFood = ref(true);
     let counter = ref(0);
 
@@ -25,6 +25,7 @@ createApp({
       showFood,
       recFood,
       counter,
+      recommendFood,
     };
   },
 }).mount("#app");

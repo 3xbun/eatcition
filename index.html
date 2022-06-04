@@ -220,34 +220,17 @@
           <div class="container">
             <h1>Some stat</h1>
 
-            <div class="food-card">
+            <div class="food-card" v-for="food in recommendFood">
               <div class="food-title">
-                <p>Chicken Burger</p>
+                <p>{{food.name}}</p>
                 <img src="./img/placeholder.png" />
               </div>
               <div class="food-information">
-                <p><strong>Restaurant's Name: </strong> Somewhere</p>
-                <p><strong>Count: </strong> 3</p>
-              </div>
-            </div>
-            <div class="food-card">
-              <div class="food-title">
-                <p>Chicken Burger</p>
-                <img src="./img/placeholder.png" />
-              </div>
-              <div class="food-information">
-                <p><strong>Restaurant's Name: </strong> Somewhere</p>
-                <p><strong>Count: </strong> 3</p>
-              </div>
-            </div>
-            <div class="food-card">
-              <div class="food-title">
-                <p>Chicken Burger</p>
-                <img src="./img/placeholder.png" />
-              </div>
-              <div class="food-information">
-                <p><strong>Restaurant's Name: </strong> Somewhere</p>
-                <p><strong>Count: </strong> 3</p>
+                <p>
+                  <strong>Restaurant's Name: </strong> <br />
+                  {{food.name}}
+                </p>
+                <p><strong>Count: </strong> {{food.count}}</p>
               </div>
             </div>
           </div>
