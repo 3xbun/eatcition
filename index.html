@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale= " />
     <title>กินไรยัง?</title>
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,13 +21,13 @@
             <div v-if="active === 'foodMatch'" id="foodMatching">
                 <div id="foodModal" v-if="showFood">
                     <header>
-                        <h1>IT'S A MATCH !</h1>
+                        <h1 class="animate__animated animate__zoomIn">IT'S A MATCH !</h1>
                     </header>
 
                     <div class="container">
                         <ul>
                             <li>
-                                <div class="food-card">
+                                <div class="food-card animate__animated animate__zoomIn">
                                     <div class="food-title">
                                         <p>{{recFood.name}}</p>
                                         <div class="food-image">
@@ -68,20 +69,28 @@
                     <div class="type">
                         <h1>1</h1>
                         <ul>
-                            <li @click="e => e.target.classList.toggle('active')">
+                            <li class="active" @click="showFood = true">
                                 SURPISE ME
                             </li>
-                            <li>NEW FOOD</li>
-                            <li>FOOD YOU LOVE</li>
+                            <li @click="one='newFood'" v-bind:class="{active: one==='newFood'}">NEW FOOD</li>
+                            <li @click="one='foodYouLove'" v-bind:class="{active: one==='foodYouLove'}">FOOD YOU LOVE
+                            </li>
                         </ul>
                     </div>
 
                     <div class="delivery">
                         <h1>2</h1>
                         <ul>
-                            <li>DELIVERY</li>
-                            <li>DINE OUT</li>
+                            <li @click="two='delivery'" v-bind:class="{active: two==='delivery'}">DELIVERY</li>
+                            <li @click="two='dineOut'" v-bind:class="{active: two==='dineOut'}">DINE OUT</li>
                         </ul>
+                    </div>
+
+                    <div class="map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1494.3843281230068!2d100.52378743491248!3d13.721284899771629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e298cdd9e5bd05%3A0x1e206241cb063178!2sSethiwan%20Tower!5e0!3m2!1sen!2sth!4v1654293442008!5m2!1sen!2sth"
+                            style="border: 0" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
 
                     <input class="searchBar" type="search" name="searchFood" id="searchFood"

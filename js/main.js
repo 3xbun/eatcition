@@ -2,10 +2,12 @@ const { createApp, ref, computed } = Vue;
 
 createApp({
   setup() {
-    const loggedIn = ref(false);
-    const active = ref("signUp");
+    const loggedIn = ref(true);
+    const active = ref("foodMatch");
     const showFood = ref(false);
     let counter = ref(0);
+    const one = ref("");
+    const two = ref("");
 
     const username = [
       "@abcdefg",
@@ -99,6 +101,8 @@ createApp({
       showFood,
       recFood,
       counter,
+      one,
+      two,
       recommendFood,
       User,
       CreatedUser,
