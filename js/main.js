@@ -2,10 +2,18 @@ const { createApp, ref, computed } = Vue;
 
 createApp({
   setup() {
-    const loggedIn = ref(true);
-    const active = ref("foodMatch");
-    const showFood = ref(true);
+    const loggedIn = ref(false);
+    const active = ref("login");
+    const showFood = ref(false);
     let counter = ref(0);
+
+    const User = ref({
+      username: "theCosmosTrio",
+      gender: "Neutral",
+      dob: "5 June 2022",
+      allergies: "Seafood",
+      preferences: "Fried Chicken",
+    });
 
     const recFood = computed(() => {
       if (counter.value >= recommendFood.length) {
@@ -26,6 +34,7 @@ createApp({
       recFood,
       counter,
       recommendFood,
+      User,
     };
   },
 }).mount("#app");

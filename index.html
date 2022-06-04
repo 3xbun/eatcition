@@ -94,7 +94,7 @@
                 <header>
                     <h1>Profile</h1>
                     <img src="./img/placeholder.png" alt="profile-img" class="profileImg" />
-                    <p class="username">@yourCoolUsername</p>
+                    <p class="username"><strong>@{{User.username}}</strong></p>
                 </header>
                 <div class="profile-information container">
                     <table>
@@ -104,23 +104,24 @@
                         </tr>
                         <tr>
                             <td>Date of Birth</td>
-                            <td>1 January 1999</td>
+                            <td>{{User.dob}}</td>
                         </tr>
                         <tr>
                             <td>Gender</td>
-                            <td>Female</td>
+                            <td>{{User.gender}}</td>
                         </tr>
                         <tr>
                             <td>Food Allergies/Prohibited Foods</td>
-                            <td>Seafood</td>
+                            <td>{{User.allergies}}</td>
                         </tr>
                         <tr>
                             <td>Menu Preferences</td>
-                            <td>Fried Chicken</td>
+                            <td>{{User.preferences}}</td>
                         </tr>
                     </table>
 
                     <div class="editBtn">EDIT</div>
+                    <div class="editBtn logout" @click="loggedIn=false; active='login'">SIGN OUT</div>
                 </div>
             </div>
 
@@ -214,11 +215,11 @@
                     <li @click="active='stat'" v-bind:class="{isActive: active==='stat'}">
                         <i class="fa-solid fa-chart-line"></i>
                     </li>
-                    <li @click="active='log'" v-bind:class="{isActive: active==='log'}">
-                        <i class="fa-solid fa-clipboard-list"></i>
-                    </li>
                     <li @click="active='foodMatch'" v-bind:class="{isActive: active==='foodMatch'}">
                         <i class="fa-solid fa-utensils"></i>
+                    </li>
+                    <li @click="active='log'" v-bind:class="{isActive: active==='log'}">
+                        <i class="fa-solid fa-clipboard-list"></i>
                     </li>
                     <li @click="active='profile'" v-bind:class="{isActive: active==='profile'}">
                         <i class="fa-solid fa-user"></i>
@@ -227,12 +228,140 @@
             </footer>
         </div>
 
-        <div v-else id="login">
-            <h1>Login Page</h1>
-            <p>{{title}}</p>
+        <div v-else id="login-signup">
+            <div id="login" v-if="active==='login'">
+                <header style="height: 150px;">
+                    <div class="dot"></div>
+                    <img class="food" src="./img/food.png"></img>
+                    <img class="logo" src="./img/logo.png"></img>
+                </header>
+
+                <div class="login-box">
+                    <img class="backgroudbox"
+                        src="https://s3-alpha-sig.figma.com/img/52f4/f09e/774f1b92e812cd58f8e53354d115b5af?Expires=1655078400&Signature=NNXTh~fsHkt9BgpiaqfF1k-G94K6tiJ-iwFfEQHlGiiYBiAGrkZGyIOjD0Tvk-JU51aYk4IncToStBcCuctZoayE93xCHMPq5Y0Bap5-z6eZwMQCh4J~8MEnLLDD1QW6i8HPivIoav-wXKjuxOj2Ql4IgsItYqlxDXdSjvWPl8PckWSfKaI12D0-f7BN-BzFk1dxXNQ~l6fz3vmcyr6SlwU8bbGSatz48dA7OVg8SUYOZzrVPOwK4rqQa5Q~FtEEqwJE83EKxXjuWpmYe1iDmpc6sK1fc-WIXItcJW-BsG~DXANiqo4oSFbDf1AWeN6u8tmIrmU3Rq6y5vOV6G6igg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"></img>
+                    <div class="login-sign">
+                        <div class="login btn" @click="active='login'">Log In</div>
+                        <div class="sign btn" @click="active='signUp'">Sign Up</div>
+                    </div>
+                    <div class="username"><input id="username" placeholder="Username"
+                            style="width: 300px; border-style: none none solid none; background: transparent;"></input>
+                    </div>
+
+                    <div class="password"><input id="password" placeholder="Password"
+                            style="width: 300px; border-style: none none solid none; background: transparent;"></input>
+                    </div>
+
+                    <div class="forgot">forgot password?</div>
+
+                    <div class="btn buttonlogin" @click="loggedIn=true; active='foodMatch'">Log In</div>
+                </div>
+
+                <footer style="height: 150px;">
+                    <img class="pizzaleft"
+                        src="https://s3-alpha-sig.figma.com/img/c933/cd04/519aa6551efc28b7caef92d8e4c7e9bd?Expires=1655078400&Signature=QW6ZBnZBLmZMzh0piXyXDfGfH0OLQxSmb6lxohuIu-3u53QKw5wykI0j0gtGkU5ADrXB0dlWJ2okTHZHrI7clSmzEnP3Bntwuq57eiDOXr9ke0~LZM797VhAKlSw6NCgeCHIRAUiXSQmjwO-pepd9fXTVLtTvLy4aaCHn~~4nNngx-cfwgFJ6tx9R9GGrevcEtn~u64ecRs24S7XbclKtH7nK~eRuXfBcuUgEQAxgvt8NJl9POb1YsWfxyrzc2cDpS4lZGcZpBm4keGpoUpyCBKEADn~90lg8v2bJDTib~joz0jQZoU84g3a1T6-vfg0MdcPwNVprjKcmOSEsqhTtQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"></img>
+                    <img class="hamberger"
+                        src="https://s3-alpha-sig.figma.com/img/36d9/3bd3/58d5eeb12f0c2882f37be5cba4ac3b08?Expires=1655078400&Signature=YUugnqFCnpkAE8Ystu2sziH5A9mxMsMh~wXJXI03AuEzNf99pvOr8m9PSKiQObYnzHGhQF6zWwzrVnOaSsjm~u2OZX4mOaGRSaUvEi0qpTpsdtvlL1WoQ-tzfIQbB5CXbdohaWZjO29Q8OyRwyfE7pP9-joJF1tZhPZZ0OXaJlwq-XUoLVvfodme811-4c3orEaxTmBMWTHQyKu-D8olY8xIfqJmtp~E2nLJLFZybAU1oRCWiSwXoEeKXs-jtCR7y5331yFATX0AKBlWVbsWIoiwKmBO5FPeU3vUKNZb3rLjadzoHP7oHpWTtABpqooyaBjquAvta040P7BQq0aVaw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"></img>
+                </footer>
+            </div>
+
+            <div id="signup" v-else-if="active==='signUp'">
+                <header style="height: 150px;">
+                    <div class="dot"></div>
+                    <img class="food" src="./img/food.png"></img>
+                    <img class="logo" src="./img/logo.png"></img>
+                </header>
+
+
+                <div class="login-box">
+                    <img class="backgroudbox"
+                        src="https://s3-alpha-sig.figma.com/img/52f4/f09e/774f1b92e812cd58f8e53354d115b5af?Expires=1655078400&Signature=NNXTh~fsHkt9BgpiaqfF1k-G94K6tiJ-iwFfEQHlGiiYBiAGrkZGyIOjD0Tvk-JU51aYk4IncToStBcCuctZoayE93xCHMPq5Y0Bap5-z6eZwMQCh4J~8MEnLLDD1QW6i8HPivIoav-wXKjuxOj2Ql4IgsItYqlxDXdSjvWPl8PckWSfKaI12D0-f7BN-BzFk1dxXNQ~l6fz3vmcyr6SlwU8bbGSatz48dA7OVg8SUYOZzrVPOwK4rqQa5Q~FtEEqwJE83EKxXjuWpmYe1iDmpc6sK1fc-WIXItcJW-BsG~DXANiqo4oSFbDf1AWeN6u8tmIrmU3Rq6y5vOV6G6igg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"></img>
+                    <div class="login-sign">
+                        <div class="login2 btn" @click="active='login'">Log In</div>
+                        <div class="sign2 btn" @click="active='signUp'">Sign Up</div>
+                    </div>
+                    <div class="username"><input id="username" placeholder="Username"
+                            style="width: 300px; border-style: none none solid none; background: transparent;"></input>
+                    </div>
+
+                    <div class="password"><input id="password" placeholder="Password"
+                            style="width: 300px; border-style: none none solid none; background: transparent;"></input>
+                    </div>
+
+                    <div class="confirmpassword"><input id="ConfirmPassword" placeholder="Confirm Password"
+                            style="width: 300px; border-style: none none solid none; background: transparent;"></input>
+                    </div>
+
+                    <div class="gender"><input id="gender" placeholder="Gender"
+                            style="width: 300px;  border-style: none none solid none; background: transparent;"></input>
+                    </div>
+
+                    <div class="age"><input id="age" placeholder="Change to DOB"
+                            style="width: 300px; border-style: none none solid none; background: transparent;"></input>
+                    </div>
+
+                    <div class="btn buttonContinue" @click="active='signUp2'">Continue</div>
+                </div>
+
+
+
+                <footer style="height: 150px;">
+                    <img class="pizzaleft"
+                        src="https://s3-alpha-sig.figma.com/img/c933/cd04/519aa6551efc28b7caef92d8e4c7e9bd?Expires=1655078400&Signature=QW6ZBnZBLmZMzh0piXyXDfGfH0OLQxSmb6lxohuIu-3u53QKw5wykI0j0gtGkU5ADrXB0dlWJ2okTHZHrI7clSmzEnP3Bntwuq57eiDOXr9ke0~LZM797VhAKlSw6NCgeCHIRAUiXSQmjwO-pepd9fXTVLtTvLy4aaCHn~~4nNngx-cfwgFJ6tx9R9GGrevcEtn~u64ecRs24S7XbclKtH7nK~eRuXfBcuUgEQAxgvt8NJl9POb1YsWfxyrzc2cDpS4lZGcZpBm4keGpoUpyCBKEADn~90lg8v2bJDTib~joz0jQZoU84g3a1T6-vfg0MdcPwNVprjKcmOSEsqhTtQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"></img>
+                    <img class="hamberger"
+                        src="https://s3-alpha-sig.figma.com/img/36d9/3bd3/58d5eeb12f0c2882f37be5cba4ac3b08?Expires=1655078400&Signature=YUugnqFCnpkAE8Ystu2sziH5A9mxMsMh~wXJXI03AuEzNf99pvOr8m9PSKiQObYnzHGhQF6zWwzrVnOaSsjm~u2OZX4mOaGRSaUvEi0qpTpsdtvlL1WoQ-tzfIQbB5CXbdohaWZjO29Q8OyRwyfE7pP9-joJF1tZhPZZ0OXaJlwq-XUoLVvfodme811-4c3orEaxTmBMWTHQyKu-D8olY8xIfqJmtp~E2nLJLFZybAU1oRCWiSwXoEeKXs-jtCR7y5331yFATX0AKBlWVbsWIoiwKmBO5FPeU3vUKNZb3rLjadzoHP7oHpWTtABpqooyaBjquAvta040P7BQq0aVaw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"></img>
+                </footer>
+            </div>
+            <div id="signup2" v-else-if="active==='signUp2'">
+                <header style="height: 150px;">
+                    <div class="dot"></div>
+                    <img class="food" src="./img/food.png"></img>
+                    <img class="logo" src="./img/logo.png"></img>
+                </header>
+
+
+                <div class="login-box">
+                    <img class="backgroudbox"
+                        src="https://s3-alpha-sig.figma.com/img/52f4/f09e/774f1b92e812cd58f8e53354d115b5af?Expires=1655078400&Signature=NNXTh~fsHkt9BgpiaqfF1k-G94K6tiJ-iwFfEQHlGiiYBiAGrkZGyIOjD0Tvk-JU51aYk4IncToStBcCuctZoayE93xCHMPq5Y0Bap5-z6eZwMQCh4J~8MEnLLDD1QW6i8HPivIoav-wXKjuxOj2Ql4IgsItYqlxDXdSjvWPl8PckWSfKaI12D0-f7BN-BzFk1dxXNQ~l6fz3vmcyr6SlwU8bbGSatz48dA7OVg8SUYOZzrVPOwK4rqQa5Q~FtEEqwJE83EKxXjuWpmYe1iDmpc6sK1fc-WIXItcJW-BsG~DXANiqo4oSFbDf1AWeN6u8tmIrmU3Rq6y5vOV6G6igg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"></img>
+                    <div class="login-sign">
+                        <div class="login2 btn" @click="active='login'">Log In</div>
+                        <div class="sign2 btn" @click="active='signUp'">Sign Up</div>
+                    </div>
+                    <div class="username"><input id="Allergies" placeholder="Allergies / Prohibited food"
+                            style="width: 300px; border-style: none none solid none; background: transparent;"></input>
+                    </div>
+
+                    <div class="password"><input id="Menupreferences" placeholder="Menu preferences"
+                            style="width: 300px; border-style: none none solid none; background: transparent;"></input>
+                    </div>
+
+                    <div class="confirmpassword"><input id="Disklikedmenus" placeholder="Diskliked menus"
+                            style="width: 300px; border-style: none none solid none; background: transparent;"></input>
+                    </div>
+
+                    <div class="gender"><input id="gender" placeholder="Restaurnt preferences"
+                            style="width: 300px; border-style: none none solid none; background: transparent;"></input>
+                    </div>
+
+                    <div class="age"><input id="Dislikedrestaurants" placeholder="Disliked restaurants"
+                            style="width: 300px; border-style: none none solid none; background: transparent;"></input>
+                    </div>
+
+                    <div class="btn buttonContinue" @click="active='login'">Continue</div>
+                </div>
+
+
+
+                <footer id="footer" style="height: 150px;">
+                    <img class="pizzaleft"
+                        src="https://s3-alpha-sig.figma.com/img/c933/cd04/519aa6551efc28b7caef92d8e4c7e9bd?Expires=1655078400&Signature=QW6ZBnZBLmZMzh0piXyXDfGfH0OLQxSmb6lxohuIu-3u53QKw5wykI0j0gtGkU5ADrXB0dlWJ2okTHZHrI7clSmzEnP3Bntwuq57eiDOXr9ke0~LZM797VhAKlSw6NCgeCHIRAUiXSQmjwO-pepd9fXTVLtTvLy4aaCHn~~4nNngx-cfwgFJ6tx9R9GGrevcEtn~u64ecRs24S7XbclKtH7nK~eRuXfBcuUgEQAxgvt8NJl9POb1YsWfxyrzc2cDpS4lZGcZpBm4keGpoUpyCBKEADn~90lg8v2bJDTib~joz0jQZoU84g3a1T6-vfg0MdcPwNVprjKcmOSEsqhTtQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"></img>
+                    <img class="hamberger"
+                        src="https://s3-alpha-sig.figma.com/img/36d9/3bd3/58d5eeb12f0c2882f37be5cba4ac3b08?Expires=1655078400&Signature=YUugnqFCnpkAE8Ystu2sziH5A9mxMsMh~wXJXI03AuEzNf99pvOr8m9PSKiQObYnzHGhQF6zWwzrVnOaSsjm~u2OZX4mOaGRSaUvEi0qpTpsdtvlL1WoQ-tzfIQbB5CXbdohaWZjO29Q8OyRwyfE7pP9-joJF1tZhPZZ0OXaJlwq-XUoLVvfodme811-4c3orEaxTmBMWTHQyKu-D8olY8xIfqJmtp~E2nLJLFZybAU1oRCWiSwXoEeKXs-jtCR7y5331yFATX0AKBlWVbsWIoiwKmBO5FPeU3vUKNZb3rLjadzoHP7oHpWTtABpqooyaBjquAvta040P7BQq0aVaw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"></img>
+                </footer>
+            </div>
         </div>
     </div>
 
+    <script src="./js/user.js"></script>
     <script src="./js/food.js"></script>
     <script src="./js/main.js"></script>
 </body>
