@@ -154,7 +154,12 @@ a {
   border: 1px solid #e1dcc9;
 }
 
-#foodMatching #foodModal .food-card {
+#stat .food-card {
+  margin-bottom: 2em;
+  background-color: #e1dcc9;
+}
+
+.food-card {
   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   background-color: white;
@@ -165,19 +170,23 @@ a {
   display: flex;
 }
 
-#foodMatching #foodModal .food-card .food-title {
+.food-card .food-title {
   border-right: 1px solid #17395c;
   padding: 1em 2em;
   width: 40%;
 }
 
-#foodMatching #foodModal .food-card .food-information {
+.food-card .food-title p {
+  font-weight: bold;
+}
+
+.food-card .food-information {
   text-align: left;
   padding: 1em 2em;
   width: 60%;
 }
 
-#foodMatching #foodModal .food-card img {
+.food-card img {
   width: 100%;
 }
 
@@ -374,5 +383,21 @@ footer ul {
 footer ul li {
   font-size: 3em;
   cursor: pointer;
+}
+
+.isActive {
+  color: #c24229;
+}
+
+@media only screen and (max-width: 600px) {
+  #foodMatching .confirmBtn {
+    margin-bottom: 15vh;
+  }
+  #foodMatching a {
+    font-size: .8em;
+  }
+  footer {
+    font-size: .8em;
+  }
 }
 /*# sourceMappingURL=main.css.map */

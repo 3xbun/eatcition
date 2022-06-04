@@ -4,7 +4,7 @@ createApp({
   setup() {
     const loggedIn = ref(true);
     const active = ref("foodMatch");
-    const showFood = ref(true);
+    const showFood = ref(false);
 
     return {
       loggedIn,

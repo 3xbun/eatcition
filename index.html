@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale= " />
     <title>กินไรยัง?</title>
     <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <script src="https://unpkg.com/vue@3"></script>
@@ -35,12 +42,18 @@
                     </div>
                   </div>
                   <div class="actions">
-                    <a href="#" class="prev">PREVIOUS</a>
+                    <a href="#" class="prev"
+                      ><i class="fa-solid fa-chevron-left"></i
+                    ></a>
                     <a href="#" class="call">CALL</a>
                     <a href="#" class="direction">GET DIRECTION</a>
-                    <a href="#" class="next">NEXT</a>
+                    <a href="#" class="next"
+                      ><i class="fa-solid fa-chevron-right"></i
+                    ></a>
                   </div>
-                  <a href="#" class="close" @click="showFood=false">CLOSE</a>
+                  <a href="#" class="close" @click="showFood=false"
+                    ><i class="fa-solid fa-xmark"></i
+                  ></a>
                 </li>
               </ul>
             </div>
@@ -189,16 +202,71 @@
         </div>
 
         <div v-else-if="active === 'stat'" id="stat">
-          <h1>Some stat</h1>
+          <div class="container">
+            <h1>Some stat</h1>
+
+            <div class="food-card">
+              <div class="food-title">
+                <p>Chicken Burger</p>
+                <img src="./img/placeholder.png" />
+              </div>
+              <div class="food-information">
+                <p><strong>Restaurant's Name: </strong> Somewhere</p>
+                <p><strong>Count: </strong> 3</p>
+              </div>
+            </div>
+            <div class="food-card">
+              <div class="food-title">
+                <p>Chicken Burger</p>
+                <img src="./img/placeholder.png" />
+              </div>
+              <div class="food-information">
+                <p><strong>Restaurant's Name: </strong> Somewhere</p>
+                <p><strong>Count: </strong> 3</p>
+              </div>
+            </div>
+            <div class="food-card">
+              <div class="food-title">
+                <p>Chicken Burger</p>
+                <img src="./img/placeholder.png" />
+              </div>
+              <div class="food-information">
+                <p><strong>Restaurant's Name: </strong> Somewhere</p>
+                <p><strong>Count: </strong> 3</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         <footer>
           <ul>
-            <li @click="active='contact'">👥</li>
-            <li @click="active='stat'">📊</li>
-            <li @click="active='log'">🍴</li>
-            <li @click="active='foodMatch'">🍛</li>
-            <li @click="active='profile'">👤</li>
+            <li
+              @click="active='contact'"
+              v-bind:class="{isActive: active==='contact'}"
+            >
+              <i class="fa-solid fa-address-book"></i>
+            </li>
+            <li
+              @click="active='stat'"
+              v-bind:class="{isActive: active==='stat'}"
+            >
+              <i class="fa-solid fa-chart-line"></i>
+            </li>
+            <li @click="active='log'" v-bind:class="{isActive: active==='log'}">
+              <i class="fa-solid fa-clipboard-list"></i>
+            </li>
+            <li
+              @click="active='foodMatch'"
+              v-bind:class="{isActive: active==='foodMatch'}"
+            >
+              <i class="fa-solid fa-utensils"></i>
+            </li>
+            <li
+              @click="active='profile'"
+              v-bind:class="{isActive: active==='profile'}"
+            >
+              <i class="fa-solid fa-user"></i>
+            </li>
           </ul>
         </footer>
       </div>
