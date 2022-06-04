@@ -154,6 +154,10 @@ a {
   border: 1px solid #e1dcc9;
 }
 
+#stat {
+  padding-bottom: 15vh;
+}
+
 #stat .food-card {
   margin-bottom: 2em;
   background-color: #e1dcc9;
