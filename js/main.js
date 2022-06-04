@@ -3,7 +3,7 @@ const { createApp, ref, computed } = Vue;
 createApp({
   setup() {
     const loggedIn = ref(true);
-    const active = ref("contact");
+    const active = ref("prefer");
     let counter = ref(0);
     const one = ref("");
     const two = ref("");
@@ -14,6 +14,44 @@ createApp({
     const res = ref("");
     const selectedFood = ref("");
 
+    const selectedPrefer = ref([]);
+    const preferences = ref({
+      nationalities: [
+        "Chinese",
+        "Mexican",
+        "Italian",
+        "Japanese",
+        "Greek",
+        "French",
+        "Thai",
+        "Spanish",
+        "Indian",
+        "Mediterranean",
+        "Korean",
+        "Vietnamese",
+      ],
+      tof: [
+        "Non-Diary",
+        "Seafood",
+        "Clean",
+        "Organic",
+        "Fast-Food",
+        "Vegetarian",
+        "Spicy",
+        "Halal",
+        "Gluten-Free",
+        "Raw",
+        "Rice",
+        "Noodle",
+      ],
+      price: [
+        "lower than 100฿",
+        "100-150฿",
+        "150-500฿",
+        "more than 500฿",
+        "more than 1000฿",
+      ],
+    });
     const friendList = [
       "@abcdefg",
       "@mgh2022",
@@ -107,6 +145,8 @@ createApp({
     });
 
     return {
+      preferences,
+      selectedPrefer,
       selectedFood,
       showFriend,
       username,

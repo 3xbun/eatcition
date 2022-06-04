@@ -246,6 +246,38 @@
                 </div>
             </div>
 
+            <div v-else-if="active === 'prefer'" id="prefer">
+                <header>
+                    <h1>What would you like to eat?</h1>
+                </header>
+
+                <div class="container">
+
+                    <h2>Nationalities</h2>
+                    <ul class="nationalities flex">
+                        <li v-bind:class="{active: selectedPrefer.includes(item)}"
+                            @click="selectedPrefer.includes(item) ? selectedPrefer=selectedPrefer.filter(i => i !== item) : selectedPrefer.push(item)"
+                            v-for="item in preferences.nationalities">{{item}}</li>
+                    </ul>
+
+                    <h2>Types of Food</h2>
+                    <ul class="tof flex">
+                        <li v-bind:class="{active: selectedPrefer.includes(item)}"
+                            @click="selectedPrefer.includes(item) ? selectedPrefer=selectedPrefer.filter(i => i !== item) : selectedPrefer.push(item)"
+                            v-for="item in preferences.tof">{{item}}</li>
+                    </ul>
+
+                    <h2>Price</h2>
+                    <ul class="price flex">
+                        <li v-bind:class="{active: selectedPrefer.includes(item)}"
+                            @click="selectedPrefer.includes(item) ? selectedPrefer=selectedPrefer.filter(i => i !== item) : selectedPrefer.push(item)"
+                            v-for="item in preferences.price">{{item}}</li>
+                    </ul>
+
+                    <a href="#" class="btn" @click="active='foodMatch'">FEED ME!</a>
+                </div>
+            </div>
+
             <footer>
                 <ul>
                     <li @click="active='contact'" v-bind:class="{isActive: active==='contact'}">
@@ -296,7 +328,7 @@
                     <!-- <div class="btn buttonlogin" @click="signIn(loginForm.username, loginForm.password)">
                         Log In
                     </div> -->
-                    <div class="btn buttonlogin" @click="loggedIn=true; active='foodMatch'">
+                    <div class="btn buttonlogin" @click="loggedIn=true; active='prefer'">
                         Log In
                     </div>
                 </div>

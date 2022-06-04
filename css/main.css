@@ -892,6 +892,66 @@ li.active {
           justify-content: space-between;
 }
 
+#prefer {
+  padding-bottom: 15vh;
+}
+
+#prefer header {
+  background-color: #c24229;
+  text-align: center;
+  color: #e1dcc9;
+  padding: 1em;
+  margin-bottom: 3em;
+}
+
+#prefer .btn {
+  background-color: #c24229;
+  padding: .5em 1em;
+  border-radius: 1em;
+  color: #e1dcc9;
+  font-weight: bold;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#prefer .flex {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 1em 0 3em;
+  gap: 1em;
+}
+
+#prefer .flex li {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+  background-color: #e1dcc9;
+  color: #17395c;
+  border-radius: 1em;
+  padding: .5em 1em;
+  -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+#prefer .flex li:hover {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: #c24229;
+  color: #e1dcc9;
+}
+
+#prefer .flex li.active {
+  background-color: #c24229;
+  color: #e1dcc9 !important;
+}
+
 @media only screen and (max-width: 600px) {
   #main #foodMatching .confirmBtn {
     margin-bottom: 15vh;
