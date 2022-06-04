@@ -156,10 +156,11 @@ a {
 
 #stat {
   padding-bottom: 15vh;
+  padding-top: 3em;
 }
 
 #stat .food-card {
-  margin-bottom: 2em;
+  margin-top: 2em;
   background-color: #e1dcc9;
 }
 
@@ -184,10 +185,27 @@ a {
   font-weight: bold;
 }
 
+.food-card .food-title .food-image {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 1em;
+  overflow: hidden;
+  height: 8em;
+}
+
+.food-card .food-title img {
+  height: 100%;
+  width: auto;
+}
+
 .food-card .food-information {
   text-align: left;
   padding: 1em 2em;
   width: 60%;
+}
+
+.food-card .food-information li {
+  margin: 0 !important;
 }
 
 .food-card img {

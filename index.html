@@ -31,7 +31,9 @@
                   <div class="food-card">
                     <div class="food-title">
                       <p>{{recFood.name}}</p>
-                      <img src="./img/placeholder.png" />
+                      <div class="food-image">
+                          <img :src="'./img/foods/' + recFood.food[0].image" />
+                      </div>
                     </div>
                     <div class="food-information">
                       <p>
@@ -40,7 +42,9 @@
                       </p>
                       <p>
                         <strong>Recommended Menu: </strong> <br />
-                        {{recFood.type}}
+                        <ul>
+                            <li v-for="food in recFood.food">{{food.name}}</li>
+                        </ul>
                       </p>
                       <div class="rating">
                         <strong>Rating: </strong>
@@ -218,7 +222,7 @@
 
         <div v-else-if="active === 'stat'" id="stat">
           <div class="container">
-            <h1>Some stat</h1>
+            <h1>Your Stat</h1>
 
             <div class="food-card" v-for="food in recommendFood">
               <div class="food-title">
