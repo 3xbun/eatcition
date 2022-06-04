@@ -1,285 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale= " />
     <title>กินไรยัง?</title>
     <link rel="stylesheet" href="./css/main.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
     <script src="https://unpkg.com/vue@3"></script>
 
     <div id="app">
-      <div v-if="loggedIn" id="main">
-        <div v-if="active === 'foodMatch'" id="foodMatching">
-          <div id="foodModal" v-if="showFood">
-            <header>
-              <h1>IT'S A MATCH !</h1>
-            </header>
+        <div v-if="loggedIn" id="main">
+            <div v-if="active === 'foodMatch'" id="foodMatching">
+                <div id="foodModal" v-if="showFood">
+                    <header>
+                        <h1>IT'S A MATCH !</h1>
+                    </header>
 
-            <div class="container">
-              <ul>
-                <li>
-                  <div class="food-card">
-                    <div class="food-title">
-                      <p>{{recFood.name}}</p>
-                      <div class="food-image">
-                          <img :src="'./img/foods/' + recFood.food[0].image" />
-                      </div>
-                    </div>
-                    <div class="food-information">
-                      <p>
-                        <strong>Restaurant's Name: </strong> <br />
-                        {{recFood.name}}
-                      </p>
-                      <p>
-                        <strong>Recommended Menu: </strong> <br />
+                    <div class="container">
                         <ul>
-                            <li v-for="food in recFood.food">{{food.name}}</li>
+                            <li>
+                                <div class="food-card">
+                                    <div class="food-title">
+                                        <p>{{recFood.name}}</p>
+                                        <div class="food-image">
+                                            <img :src="'./img/foods/' + recFood.food[0].image" />
+                                        </div>
+                                    </div>
+                                    <div class="food-information">
+                                        <p>
+                                            <strong>Restaurant's Name: </strong> <br />
+                                            {{recFood.name}}
+                                        </p>
+                                        <p>
+                                            <strong>Recommended Menu: </strong> <br />
+                                        <ul>
+                                            <li v-for="food in recFood.food">{{food.name}}</li>
+                                        </ul>
+                                        </p>
+                                        <div class="rating">
+                                            <strong>Rating: </strong>
+                                            <i v-for="index in recFood.rating" class="fa-solid fa-star"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="actions">
+                                    <a href="#" class="prev" @click="counter++"><i
+                                            class="fa-solid fa-chevron-left"></i></a>
+                                    <a href="#" class="call">CALL</a>
+                                    <a :href="recFood.location" target="_blank" class="direction">GET DIRECTION</a>
+                                    <a href="#" class="next" @click="counter--"><i
+                                            class="fa-solid fa-chevron-right"></i></a>
+                                </div>
+                                <a href="#" class="close" @click="showFood=false"><i class="fa-solid fa-xmark"></i></a>
+                            </li>
                         </ul>
-                      </p>
-                      <div class="rating">
-                        <strong>Rating: </strong>
-                        <i
-                          v-for="index in recFood.rating"
-                          class="fa-solid fa-star"
-                        ></i>
-                      </div>
                     </div>
-                  </div>
-                  <div class="actions">
-                    <a href="#" class="prev" @click="counter++"
-                      ><i class="fa-solid fa-chevron-left"></i
-                    ></a>
-                    <a href="#" class="call">CALL</a>
-                    <a
-                      :href="recFood.location"
-                      target="_blank"
-                      class="direction"
-                      >GET DIRECTION</a
-                    >
-                    <a href="#" class="next" @click="counter--"
-                      ><i class="fa-solid fa-chevron-right"></i
-                    ></a>
-                  </div>
-                  <a href="#" class="close" @click="showFood=false"
-                    ><i class="fa-solid fa-xmark"></i
-                  ></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="container">
-            <h1>Food Matching</h1>
-            <div class="type">
-              <h1>1</h1>
-              <ul>
-                <li @click="e => e.target.classList.toggle('active')">
-                  SURPISE ME
-                </li>
-                <li>NEW FOOD</li>
-                <li>FOOD YOU LOVE</li>
-              </ul>
+                </div>
+                <div class="container">
+                    <h1>Food Matching</h1>
+                    <div class="type">
+                        <h1>1</h1>
+                        <ul>
+                            <li @click="e => e.target.classList.toggle('active')">
+                                SURPISE ME
+                            </li>
+                            <li>NEW FOOD</li>
+                            <li>FOOD YOU LOVE</li>
+                        </ul>
+                    </div>
+
+                    <div class="delivery">
+                        <h1>2</h1>
+                        <ul>
+                            <li>DELIVERY</li>
+                            <li>DINE OUT</li>
+                        </ul>
+                    </div>
+
+                    <input class="searchBar" type="search" name="searchFood" id="searchFood"
+                        placeholder="🔍 Search your favorite food. . ." />
+                    <input class="confirmBtn" type="button" value="CONFIRM" @click="showFood=true" />
+                </div>
             </div>
 
-            <div class="delivery">
-              <h1>2</h1>
-              <ul>
-                <li>DELIVERY</li>
-                <li>DINE OUT</li>
-              </ul>
+            <div v-else-if="active === 'profile'" id="profile">
+                <header>
+                    <h1>Profile</h1>
+                    <img src="./img/placeholder.png" alt="profile-img" class="profileImg" />
+                    <p class="username">@yourCoolUsername</p>
+                </header>
+                <div class="profile-information container">
+                    <table>
+                        <tr>
+                            <td>Email</td>
+                            <td>mail@mail.com</td>
+                        </tr>
+                        <tr>
+                            <td>Date of Birth</td>
+                            <td>1 January 1999</td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td>Female</td>
+                        </tr>
+                        <tr>
+                            <td>Food Allergies/Prohibited Foods</td>
+                            <td>Seafood</td>
+                        </tr>
+                        <tr>
+                            <td>Menu Preferences</td>
+                            <td>Fried Chicken</td>
+                        </tr>
+                    </table>
+
+                    <div class="editBtn">EDIT</div>
+                </div>
             </div>
 
-            <input
-              class="searchBar"
-              type="search"
-              name="searchFood"
-              id="searchFood"
-              placeholder="🔍 Search your favorite food. . ."
-            />
-            <input
-              class="confirmBtn"
-              type="button"
-              value="CONFIRM"
-              @click="showFood=true"
-            />
-          </div>
+            <div v-else-if="active === 'contact'" id="contact">
+                <header>
+                    <h1>Contacts</h1>
+                </header>
+
+                <h1 class="addFriend">Add Friend</h1>
+                <h1 class="myFriend">My Friends</h1>
+
+                <div class="container">
+                    <table>
+                        <tr>
+                            <td><img src="./img/placeholder.png" /></td>
+                            <td class="username">@janeDoe</td>
+                            <td>/</td>
+                        </tr>
+                        <tr>
+                            <td><img src="./img/placeholder.png" /></td>
+                            <td class="username">@jamesK</td>
+                            <td>/</td>
+                        </tr>
+                        <tr>
+                            <td><img src="./img/placeholder.png" /></td>
+                            <td class="username">@Scoot</td>
+                            <td>/</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div v-else-if="active === 'log'" id="log">
+                <header>
+                    <div class="container">
+                        <input class="searchBar" type="search" name="searchFood" id="searchFood"
+                            placeholder="🔍 Search your favorite food. . ." />
+                    </div>
+                </header>
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1494.3843281230068!2d100.52378743491248!3d13.721284899771629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e298cdd9e5bd05%3A0x1e206241cb063178!2sSethiwan%20Tower!5e0!3m2!1sen!2sth!4v1654293442008!5m2!1sen!2sth"
+                        style="border: 0" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="container">
+                    <h1>MENU</h1>
+                    <div class="menus">
+                        <div class="active menu">
+                            <img src="./img/placeholder.png" alt="burger" />
+                            <p class="menu-title">Chicken Burger</p>
+                            <p class="menu-cost">100THB</p>
+                        </div>
+                        <div class="menu">
+                            <img src="./img/placeholder.png" alt="burger" />
+                            <p class="menu-title">Double Cheesy Burger</p>
+                            <p class="menu-cost">150THB</p>
+                        </div>
+                    </div>
+                    <input class="confirmBtn" type="button" value="CONFIRM" />
+                </div>
+            </div>
+
+            <div v-else-if="active === 'stat'" id="stat">
+                <div class="container">
+                    <h1>Your Stat</h1>
+
+                    <div class="food-card" v-for="food in recommendFood">
+                        <div class="food-title">
+                            <p>{{food.name}}</p>
+                            <div class="food-image">
+                                <img src="./img/placeholder.png" />
+                            </div>
+                        </div>
+                        <div class="food-information">
+                            <p>
+                                <strong>Restaurant's Name: </strong> <br />
+                                {{food.name}}
+                            </p>
+                            <p><strong>Count: </strong> {{food.count}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <ul>
+                    <li @click="active='contact'" v-bind:class="{isActive: active==='contact'}">
+                        <i class="fa-solid fa-address-book"></i>
+                    </li>
+                    <li @click="active='stat'" v-bind:class="{isActive: active==='stat'}">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </li>
+                    <li @click="active='log'" v-bind:class="{isActive: active==='log'}">
+                        <i class="fa-solid fa-clipboard-list"></i>
+                    </li>
+                    <li @click="active='foodMatch'" v-bind:class="{isActive: active==='foodMatch'}">
+                        <i class="fa-solid fa-utensils"></i>
+                    </li>
+                    <li @click="active='profile'" v-bind:class="{isActive: active==='profile'}">
+                        <i class="fa-solid fa-user"></i>
+                    </li>
+                </ul>
+            </footer>
         </div>
 
-        <div v-else-if="active === 'profile'" id="profile">
-          <header>
-            <h1>Profile</h1>
-            <img
-              src="./img/placeholder.png"
-              alt="profile-img"
-              class="profileImg"
-            />
-            <p class="username">@yourCoolUsername</p>
-          </header>
-          <div class="profile-information container">
-            <table>
-              <tr>
-                <td>Email</td>
-                <td>mail@mail.com</td>
-              </tr>
-              <tr>
-                <td>Date of Birth</td>
-                <td>1 January 1999</td>
-              </tr>
-              <tr>
-                <td>Gender</td>
-                <td>Female</td>
-              </tr>
-              <tr>
-                <td>Food Allergies/Prohibited Foods</td>
-                <td>Seafood</td>
-              </tr>
-              <tr>
-                <td>Menu Preferences</td>
-                <td>Fried Chicken</td>
-              </tr>
-            </table>
-
-            <div class="editBtn">EDIT</div>
-          </div>
+        <div v-else id="login">
+            <h1>Login Page</h1>
+            <p>{{title}}</p>
         </div>
-
-        <div v-else-if="active === 'contact'" id="contact">
-          <header>
-            <h1>Contacts</h1>
-          </header>
-
-          <h1 class="addFriend">Add Friend</h1>
-          <h1 class="myFriend">My Friends</h1>
-
-          <div class="container">
-            <table>
-              <tr>
-                <td><img src="./img/placeholder.png" /></td>
-                <td class="username">@janeDoe</td>
-                <td>/</td>
-              </tr>
-              <tr>
-                <td><img src="./img/placeholder.png" /></td>
-                <td class="username">@jamesK</td>
-                <td>/</td>
-              </tr>
-              <tr>
-                <td><img src="./img/placeholder.png" /></td>
-                <td class="username">@Scoot</td>
-                <td>/</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div v-else-if="active === 'log'" id="log">
-          <header>
-            <div class="container">
-              <input
-                class="searchBar"
-                type="search"
-                name="searchFood"
-                id="searchFood"
-                placeholder="🔍 Search your favorite food. . ."
-              />
-            </div>
-          </header>
-          <div class="map">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1494.3843281230068!2d100.52378743491248!3d13.721284899771629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e298cdd9e5bd05%3A0x1e206241cb063178!2sSethiwan%20Tower!5e0!3m2!1sen!2sth!4v1654293442008!5m2!1sen!2sth"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <div class="container">
-            <h1>MENU</h1>
-            <div class="menus">
-              <div class="active menu">
-                <img src="./img/placeholder.png" alt="burger" />
-                <p class="menu-title">Chicken Burger</p>
-                <p class="menu-cost">100THB</p>
-              </div>
-              <div class="menu">
-                <img src="./img/placeholder.png" alt="burger" />
-                <p class="menu-title">Double Cheesy Burger</p>
-                <p class="menu-cost">150THB</p>
-              </div>
-            </div>
-            <input class="confirmBtn" type="button" value="CONFIRM" />
-          </div>
-        </div>
-
-        <div v-else-if="active === 'stat'" id="stat">
-          <div class="container">
-            <h1>Your Stat</h1>
-
-            <div class="food-card" v-for="food in recommendFood">
-              <div class="food-title">
-                <p>{{food.name}}</p>
-                <img src="./img/placeholder.png" />
-              </div>
-              <div class="food-information">
-                <p>
-                  <strong>Restaurant's Name: </strong> <br />
-                  {{food.name}}
-                </p>
-                <p><strong>Count: </strong> {{food.count}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <footer>
-          <ul>
-            <li
-              @click="active='contact'"
-              v-bind:class="{isActive: active==='contact'}"
-            >
-              <i class="fa-solid fa-address-book"></i>
-            </li>
-            <li
-              @click="active='stat'"
-              v-bind:class="{isActive: active==='stat'}"
-            >
-              <i class="fa-solid fa-chart-line"></i>
-            </li>
-            <li @click="active='log'" v-bind:class="{isActive: active==='log'}">
-              <i class="fa-solid fa-clipboard-list"></i>
-            </li>
-            <li
-              @click="active='foodMatch'"
-              v-bind:class="{isActive: active==='foodMatch'}"
-            >
-              <i class="fa-solid fa-utensils"></i>
-            </li>
-            <li
-              @click="active='profile'"
-              v-bind:class="{isActive: active==='profile'}"
-            >
-              <i class="fa-solid fa-user"></i>
-            </li>
-          </ul>
-        </footer>
-      </div>
-
-      <div v-else id="login">
-        <h1>Login Page</h1>
-        <p>{{title}}</p>
-      </div>
     </div>
 
     <script src="./js/food.js"></script>
     <script src="./js/main.js"></script>
-  </body>
+</body>
+
 </html>
