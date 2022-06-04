@@ -3,7 +3,7 @@ const { createApp, ref } = Vue;
 createApp({
   setup() {
     const loggedIn = ref(true);
-    const active = ref("contact");
+    const active = ref("main");
 
     return {
       loggedIn,

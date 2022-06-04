@@ -110,11 +110,50 @@
           </div>
         </div>
 
+        <div v-else-if="active === 'main'" id="main">
+          <header>
+            <div class="container">
+              <input
+                class="searchBar"
+                type="search"
+                name="searchFood"
+                id="searchFood"
+                placeholder="🔍 Search your favorite food. . ."
+              />
+            </div>
+          </header>
+          <div class="map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1494.3843281230068!2d100.52378743491248!3d13.721284899771629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e298cdd9e5bd05%3A0x1e206241cb063178!2sSethiwan%20Tower!5e0!3m2!1sen!2sth!4v1654293442008!5m2!1sen!2sth"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div class="container">
+            <h1>MENU</h1>
+            <div class="menus">
+              <div class="active menu">
+                <img src="./img/placeholder.png" alt="burger" />
+                <p class="menu-title">Chicken Burger</p>
+                <p class="menu-cost">100THB</p>
+              </div>
+              <div class="menu">
+                <img src="./img/placeholder.png" alt="burger" />
+                <p class="menu-title">Double Cheesy Burger</p>
+                <p class="menu-cost">150THB</p>
+              </div>
+            </div>
+            <input class="confirmBtn" type="button" value="CONFIRM" />
+          </div>
+        </div>
+
         <footer>
           <ul>
             <li @click="active='contact'">👥</li>
             <li>📊</li>
-            <li>🍴</li>
+            <li @click="active='main'">🍴</li>
             <li @click="active='foodMatch'">🍛</li>
             <li @click="active='profile'">👤</li>
           </ul>
