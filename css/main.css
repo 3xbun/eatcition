@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@300;600&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -175,7 +175,9 @@ a {
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   border-radius: 1em;
   overflow: hidden;
-  height: 2em;
+  height: 5em;
+  width: 5em;
+  margin: auto;
 }
 
 #stat img {
@@ -379,14 +381,16 @@ li.active {
   padding-bottom: 15vh;
 }
 
-#contact .addFriend {
-  background-color: #e1dcc9;
-  padding-left: 1em;
-}
-
 #contact .myFriend {
   padding-left: 1em;
-  margin-bottom: 1em;
+  margin: 1em;
+}
+
+#contact .searchFriend {
+  border-radius: 1em;
+  border: 2px solid #17395c;
+  margin: 0 1em;
+  padding: .2em 1em;
 }
 
 #contact header {
@@ -408,6 +412,14 @@ li.active {
 
 #contact table td:first-child {
   text-align: center;
+}
+
+#contact table strong {
+  cursor: pointer;
+}
+
+#contact .profileImage {
+  width: 10%;
 }
 
 #contact img {
@@ -439,16 +451,16 @@ li.active {
   cursor: pointer;
 }
 
+.btn {
+  cursor: pointer;
+}
+
 .isActive {
   color: #c24229;
 }
 
 #login-signup * {
   font-size: 1.2em;
-}
-
-#login-signup .btn {
-  cursor: pointer;
 }
 
 #login-signup .dot {

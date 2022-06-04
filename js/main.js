@@ -3,13 +3,15 @@ const { createApp, ref, computed } = Vue;
 createApp({
   setup() {
     const loggedIn = ref(true);
-    const active = ref("foodMatch");
+    const active = ref("contact");
     const showFood = ref(false);
     let counter = ref(0);
     const one = ref("");
     const two = ref("");
+    const showFriend = ref(false);
+    const username = ref("");
 
-    const username = [
+    const friendList = [
       "@abcdefg",
       "@mgh2022",
       "@deepsleep",
@@ -94,6 +96,9 @@ createApp({
     });
 
     return {
+      showFriend,
+      username,
+      friendList,
       loggedIn,
       signIn,
       signOut,

@@ -140,25 +140,27 @@
                     <h1>Contacts</h1>
                 </header>
 
-                <h1 class="addFriend">Add Friend</h1>
                 <h1 class="myFriend">My Friends</h1>
 
                 <div class="container">
                     <table>
                         <tr>
-                            <td><img src="./img/placeholder.png" /></td>
-                            <td class="username">@janeDoe</td>
-                            <td>/</td>
+                            <td></td>
+                            <td>
+                                <strong @click="showFriend=!showFriend">Add Friend <i
+                                        class="fa-solid fa-user-plus"></i></strong>
+                                <input v-model="username" v-if="showFriend" class="searchFriend" type="search"
+                                    placeholder="Search by user ID">
+                                <i v-if="showFriend" class="fa-solid fa-magnifying-glass btn"
+                                    @click="friendList.push('@'+username); username=''"></i>
+                            </td>
                         </tr>
-                        <tr>
-                            <td><img src="./img/placeholder.png" /></td>
-                            <td class="username">@jamesK</td>
-                            <td>/</td>
-                        </tr>
-                        <tr>
-                            <td><img src="./img/placeholder.png" /></td>
-                            <td class="username">@Scoot</td>
-                            <td>/</td>
+                        <tr v-for="user in friendList">
+                            <td class="profileImage">
+                                <img :src="'https://avatars.dicebear.com/api/pixel-art/'+ user +'.svg'"
+                                    alt="profile-img">
+                            </td>
+                            <td class="username">{{user}}</td>
                         </tr>
                     </table>
                 </div>
@@ -201,9 +203,9 @@
 
                     <div class="food-card" v-for="food in recommendFood">
                         <div class="food-title">
-                            <p>{{food.name}}</p>
+                            <p>{{food.food[0].name}}</p>
                             <div class="food-image">
-                                <img src="./img/placeholder.png" />
+                                <img :src="'./img/foods/' + food.food[0].image" />
                             </div>
                         </div>
                         <div class="food-information">
