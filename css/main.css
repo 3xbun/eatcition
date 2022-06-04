@@ -320,6 +320,7 @@ a {
 #profile img {
   height: 10em;
   border-radius: 50%;
+  background-color: #e1dcc9;
 }
 
 #profile .username {
@@ -654,14 +655,32 @@ a {
   left: 27px;
   top: 340px;
   color: #766F6F;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#login-signup .age input {
+  width: 30%;
+  padding: 1em .5em;
+  border: none;
+  background-color: none;
+}
+
+#login-signup .age select {
+  width: 40%;
+  height: 2em;
+  border: none;
+  background-color: none;
 }
 
 #login-signup .forgot {
   position: absolute;
   width: 300px;
   height: 17px;
-  left: 240px;
+  right: 45px;
   top: 220px;
+  text-align: right;
 }
 
 #login-signup .buttonlogin {

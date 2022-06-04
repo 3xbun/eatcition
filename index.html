@@ -93,18 +93,19 @@
             <div v-else-if="active === 'profile'" id="profile">
                 <header>
                     <h1>Profile</h1>
-                    <img src="./img/placeholder.png" alt="profile-img" class="profileImg" />
+                    <img :src="'https://avatars.dicebear.com/api/pixel-art/'+User.username +'.svg'" alt="profile-img"
+                        class="profileImg" />
                     <p class="username"><strong>@{{User.username}}</strong></p>
                 </header>
                 <div class="profile-information container">
                     <table>
                         <tr>
                             <td>Email</td>
-                            <td>mail@mail.com</td>
+                            <td>No email specify</td>
                         </tr>
                         <tr>
                             <td>Date of Birth</td>
-                            <td>{{User.dob}}</td>
+                            <td>{{User.dob.day}} {{User.dob.month}} {{User.dob.year}}</td>
                         </tr>
                         <tr>
                             <td>Gender</td>
@@ -121,7 +122,7 @@
                     </table>
 
                     <div class="editBtn">EDIT</div>
-                    <div class="editBtn logout" @click="loggedIn=false; active='login'">SIGN OUT</div>
+                    <div class="editBtn logout" @click="signOut">SIGN OUT</div>
                 </div>
             </div>
 
@@ -243,17 +244,19 @@
                         <div class="login btn" @click="active='login'">Log In</div>
                         <div class="sign btn" @click="active='signUp'">Sign Up</div>
                     </div>
-                    <div class="username"><input id="username" placeholder="Username"
+                    <div class="username"><input v-model="loginForm.username" id="username" placeholder="Username"
                             style="width: 300px; border-style: none none solid none; background: transparent;"></input>
                     </div>
 
-                    <div class="password"><input id="password" placeholder="Password"
+                    <div class="password"><input v-model="loginForm.password" id="password" placeholder="Password"
+                            type="password"
                             style="width: 300px; border-style: none none solid none; background: transparent;"></input>
                     </div>
 
                     <div class="forgot">forgot password?</div>
 
-                    <div class="btn buttonlogin" @click="loggedIn=true; active='foodMatch'">Log In</div>
+                    <div class="btn buttonlogin" @click="signIn(loginForm.username, loginForm.password)">Log In
+                    </div>
                 </div>
 
                 <footer style="height: 150px;">
@@ -279,24 +282,43 @@
                         <div class="login2 btn" @click="active='login'">Log In</div>
                         <div class="sign2 btn" @click="active='signUp'">Sign Up</div>
                     </div>
-                    <div class="username"><input id="username" placeholder="Username"
+                    <div class="username">
+                        <input v-model="CreatedUser.username" id="username" placeholder="Username"
                             style="width: 300px; border-style: none none solid none; background: transparent;"></input>
                     </div>
 
-                    <div class="password"><input id="password" placeholder="Password"
+                    <div class="password">
+                        <input v-model="CreatedUser.password" id="password" type="password" placeholder="Password"
                             style="width: 300px; border-style: none none solid none; background: transparent;"></input>
                     </div>
 
-                    <div class="confirmpassword"><input id="ConfirmPassword" placeholder="Confirm Password"
+                    <div class="confirmpassword"><input id="ConfirmPassword" type="password"
+                            placeholder="Confirm Password"
                             style="width: 300px; border-style: none none solid none; background: transparent;"></input>
                     </div>
 
-                    <div class="gender"><input id="gender" placeholder="Gender"
+                    <div class="gender">
+                        <input v-model="CreatedUser.gender" id="gender" v-model="gender" placeholder="Gender"
                             style="width: 300px;  border-style: none none solid none; background: transparent;"></input>
                     </div>
 
-                    <div class="age"><input id="age" placeholder="Change to DOB"
-                            style="width: 300px; border-style: none none solid none; background: transparent;"></input>
+                    <div class="age">
+                        <input type="text" placeholder="Day" v-model="CreatedUser.dob.day">
+                        <select name="month" id="month" v-model="CreatedUser.dob.month">
+                            <option selected value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                        <input v-model="CreatedUser.dob.year" type="text" placeholder="Year">
                     </div>
 
                     <div class="btn buttonContinue" @click="active='signUp2'">Continue</div>
@@ -326,11 +348,13 @@
                         <div class="login2 btn" @click="active='login'">Log In</div>
                         <div class="sign2 btn" @click="active='signUp'">Sign Up</div>
                     </div>
-                    <div class="username"><input id="Allergies" placeholder="Allergies / Prohibited food"
+                    <div class="username"><input v-model="CreatedUser.allergies" id="Allergies"
+                            placeholder="Allergies / Prohibited food"
                             style="width: 300px; border-style: none none solid none; background: transparent;"></input>
                     </div>
 
-                    <div class="password"><input id="Menupreferences" placeholder="Menu preferences"
+                    <div class="password"><input v-model="CreatedUser.preferences" id="Menupreferences"
+                            placeholder="Menu preferences"
                             style="width: 300px; border-style: none none solid none; background: transparent;"></input>
                     </div>
 
@@ -346,7 +370,7 @@
                             style="width: 300px; border-style: none none solid none; background: transparent;"></input>
                     </div>
 
-                    <div class="btn buttonContinue" @click="active='login'">Continue</div>
+                    <div class="btn buttonContinue" @click="active='login'">Sign Up</div>
                 </div>
 
 
