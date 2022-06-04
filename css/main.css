@@ -554,18 +554,15 @@ li.active {
   color: #c24229;
 }
 
-#login-signup * {
-  font-size: 1.2em;
-}
-
 #login-signup .dot {
   position: relative;
   top: -400px;
   left: -100px;
   height: 700px;
   width: 700px;
-  background-color: #C24229;
+  background-color: #c24229;
   border-radius: 50%;
+  z-index: -1;
 }
 
 #login-signup .logo {
@@ -573,6 +570,7 @@ li.active {
   top: -800px;
   left: -150px;
   width: 100px;
+  z-index: 9;
 }
 
 #login-signup .food {
@@ -580,303 +578,114 @@ li.active {
   top: -800px;
   width: 400px;
   opacity: 0.1;
+  z-index: 99;
 }
 
-#login-signup .login-box {
-  background-color: #FFFFFF;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  width: 374px;
-  height: 500px;
-  margin: auto;
-  -webkit-box-shadow: 0px 4px 8px -48px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 4px 8px -48px rgba(0, 0, 0, 0.25);
-  border-radius: 17px;
-  font-family: 'Rosario';
-  font-style: normal;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 17px;
-  border: 1px solid #BAB7B7;
-  border-radius: 17px;
-  position: relative;
-}
-
-#login-signup .space {
-  margin: 56px;
-}
-
-#login-signup .login-sign {
-  position: absolute;
-  width: 225px;
-  height: 27px;
-  left: 72px;
-  top: 56px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+#login-signup .btn {
   text-align: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: #BE0127;
-  background: #F8E0A0;
-  border: 1px solid #BE0127;
-  border-radius: 17px;
 }
 
-#login-signup .sign-login {
-  position: absolute;
-  width: 225px;
-  height: 27px;
-  left: 72px;
-  top: 56px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: #BE0127;
-  background: #F8E0A0;
-  border: 1px solid #BE0127;
-  border-radius: 17px;
-  font-weight: bold;
-}
-
-#login-signup .login {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  position: absolute;
-  width: 128px;
-  height: 28px;
-  left: -1px;
-  top: 0px;
-  background: #BE0127;
-  border: 1px solid #BE0127;
-  color: #FFFFFF;
-  border-radius: 17px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  z-index: 10;
-  font-weight: bold;
-}
-
-#login-signup .login2 {
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  left: 35px;
-}
-
-#login-signup .sign {
-  position: absolute;
-  width: 128px;
-  height: 28px;
-  left: 110px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-#login-signup .sign2 {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  position: absolute;
-  width: 128px;
-  height: 28px;
-  left: 98px;
-  top: 0px;
-  background: #BE0127;
-  border: 1px solid #BE0127;
-  color: #FFFFFF;
-  border-radius: 17px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  z-index: 10;
-}
-
-#login-signup .username {
-  position: absolute;
-  width: 300px;
-  height: 17px;
-  left: 27px;
-  top: 100px;
-  color: #766F6F;
-}
-
-#login-signup .password {
-  position: absolute;
-  width: 300px;
-  height: 17px;
-  left: 27px;
-  top: 160px;
-  color: #766F6F;
-}
-
-#login-signup .confirmpassword {
-  position: absolute;
-  width: 300px;
-  height: 17px;
-  left: 27px;
-  top: 220px;
-  color: #766F6F;
-}
-
-#login-signup .gender {
-  position: absolute;
-  width: 300px;
-  height: 17px;
-  left: 27px;
-  top: 280px;
-  color: #766F6F;
+#login-signup .input {
+  width: 100%;
+  padding: .5em 0;
+  border: none;
+  border-bottom: 2px solid #17395c;
+  margin-bottom: 1.5em;
 }
 
 #login-signup .age {
-  position: absolute;
-  width: 300px;
-  height: 17px;
-  left: 27px;
-  top: 340px;
-  color: #766F6F;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border-bottom: 2px solid #17395c;
+}
+
+#login-signup .age input, #login-signup .age select {
+  border: none;
 }
 
 #login-signup .age input {
-  width: 30%;
-  padding: 1em .5em;
-  border: none;
-  background-color: none;
+  text-align: center;
 }
 
 #login-signup .age select {
-  width: 40%;
-  height: 2em;
+  border-left: 1px solid #17395c;
+  border-right: 1px solid #17395c;
+}
+
+#login-signup .age .day {
+  width: 20%;
+}
+
+#login-signup .age .month {
+  width: 60%;
+}
+
+#login-signup .age .year {
+  width: 20%;
+}
+
+#login-signup .loginModal {
+  position: absolute;
+  top: 20vh;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-top: 2em;
+  width: 50vw;
+  background-color: white;
+  padding: 1em;
+  border-radius: 1em;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+#login-signup .loginModal #submit {
+  background-color: #c24229;
+  width: 100%;
+  margin-top: 1em;
+  color: #e1dcc9;
+  font-weight: bold;
+  padding: .5em 0;
   border: none;
-  background-color: none;
+  border-radius: 1em;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-#login-signup .forgot {
-  position: absolute;
-  width: 300px;
-  height: 17px;
-  right: 45px;
-  top: 220px;
+#login-signup .loginModal p {
   text-align: right;
+  text-decoration: underline;
+  color: lightgrey;
 }
 
-#login-signup .buttonlogin {
-  position: absolute;
-  width: 128px;
-  height: 28px;
-  left: 120px;
-  top: 300px;
+#login-signup .loginModal .login_signUp {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: #BE0127;
-  border: 1px solid #BE0127;
-  color: #FFFFFF;
-  border-radius: 17px;
-  text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-weight: bold;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-color: #e1a194;
+  width: 80%;
+  margin: auto;
+  border-radius: 1em;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border: 2px solid #c24229;
+  overflow: hidden;
+  margin-bottom: 1em;
 }
 
-#login-signup .backgroudbox {
-  position: relative;
-  top: 50px;
-  left: 10px;
-  height: auto;
-  width: auto;
-  max-width: 350px;
-  max-height: 350px;
-  opacity: 0.1;
-}
-
-#login-signup .buttonContinue {
-  position: absolute;
-  width: 128px;
-  height: 28px;
-  left: 120px;
-  top: 420px;
-  background: #BE0127;
-  border: 1px solid #BE0127;
-  color: #FFFFFF;
-  border-radius: 17px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+#login-signup .loginModal .login_signUp .btn {
+  width: 50%;
   text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-weight: bold;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
-#login-signup .login-box:hover {
-  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-}
-
-#login-signup .container {
-  padding: 2px 16px;
-}
-
-#login-signup .pizzaleft {
-  width: 300px;
-}
-
-#login-signup .hamberger {
-  position: absolute;
-  right: -30px;
-  width: 200px;
+#login-signup .loginModal .login_signUp .btn.active {
+  border-radius: 1em;
+  border: 2px solid #c24229;
+  background-color: #c24229;
 }
 
 #login-signup footer {

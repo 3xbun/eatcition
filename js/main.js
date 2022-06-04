@@ -2,8 +2,8 @@ const { createApp, ref, computed } = Vue;
 
 createApp({
   setup() {
-    const loggedIn = ref(true);
-    const active = ref("prefer");
+    const loggedIn = ref(false);
+    const active = ref("signUp");
     let counter = ref(0);
     const one = ref("");
     const two = ref("");
