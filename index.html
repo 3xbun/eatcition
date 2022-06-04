@@ -155,14 +155,24 @@
                                     @click="friendList.push('@'+username); username=''; showFriend=false"></i>
                             </td>
                         </tr>
-                        <tr v-for="user in friendList">
+                        <tr class="btn" v-for="user in friendList"
+                            @click="selectedFriend.includes(user) ? selectedFriend=selectedFriend.filter((u) => u != user) : selectedFriend.push(user)">
                             <td class="profileImage">
                                 <img :src="'https://avatars.dicebear.com/api/pixel-art/'+ user +'.svg'"
                                     alt="profile-img">
                             </td>
-                            <td class="username">{{user}}</td>
+                            <td class="username">
+                                {{user}}
+                                <i v-if="selectedFriend.includes(user)" class="fa-solid fa-circle-check check"></i>
+                                <i v-if="selectedFriend.includes(user)" class="fa-solid fa-circle-minus minus"></i>
+                            </td>
                         </tr>
                     </table>
+                    <div @click="active='foodMatch'">
+                        <a class="btn button" v-if="selectedFriend.length>5">START FOOD FESTIVAL!</a>
+                        <a class="btn button" v-else-if="selectedFriend.length>2">START FOOD PARTY!</a>
+                        <a class="btn button" v-else-if="selectedFriend.length>0">EATING TIME!</a>
+                    </div>
                 </div>
             </div>
 

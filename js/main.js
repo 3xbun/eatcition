@@ -3,7 +3,7 @@ const { createApp, ref, computed } = Vue;
 createApp({
   setup() {
     const loggedIn = ref(true);
-    const active = ref("log");
+    const active = ref("contact");
     let counter = ref(0);
     const one = ref("");
     const two = ref("");
@@ -22,6 +22,8 @@ createApp({
       "@wantsomesleep",
       "@sttu123",
     ];
+
+    const selectedFriend = ref([]);
 
     const User = ref({
       username: "theCosmosTrio",
@@ -125,6 +127,7 @@ createApp({
       res,
       filterRecFood,
       showLog,
+      selectedFriend,
     };
   },
 }).mount("#app");

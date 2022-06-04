@@ -458,6 +458,23 @@ li.active {
   padding-bottom: 15vh;
 }
 
+#contact .check {
+  color: green;
+}
+
+#contact .button {
+  background-color: #c24229;
+  color: #e1dcc9;
+  padding: .5em 1em;
+  border-radius: 1em;
+}
+
+#contact .minus {
+  opacity: .3;
+  color: darkred;
+  margin-left: .5em;
+}
+
 #contact .myFriend {
   padding-left: 1em;
   margin: 1em;
@@ -485,6 +502,7 @@ li.active {
 #contact table {
   width: 100%;
   text-align: left;
+  padding-bottom: 2em;
 }
 
 #contact table td:first-child {
