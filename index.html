@@ -30,24 +30,39 @@
                 <li>
                   <div class="food-card">
                     <div class="food-title">
-                      <p>Chicken Burger</p>
+                      <p>{{recFood.name}}</p>
                       <img src="./img/placeholder.png" />
                     </div>
                     <div class="food-information">
-                      <p><strong>Restaurant's Name: </strong> Somewhere</p>
-                      <p><strong>Recommended Menu: </strong> Another Menu</p>
+                      <p>
+                        <strong>Restaurant's Name: </strong> <br />
+                        {{recFood.name}}
+                      </p>
+                      <p>
+                        <strong>Recommended Menu: </strong> <br />
+                        {{recFood.type}}
+                      </p>
                       <div class="rating">
-                        <strong>Rating: </strong> ⭐⭐⭐⭐
+                        <strong>Rating: </strong>
+                        <i
+                          v-for="index in recFood.rating"
+                          class="fa-solid fa-star"
+                        ></i>
                       </div>
                     </div>
                   </div>
                   <div class="actions">
-                    <a href="#" class="prev"
+                    <a href="#" class="prev" @click="counter++"
                       ><i class="fa-solid fa-chevron-left"></i
                     ></a>
                     <a href="#" class="call">CALL</a>
-                    <a href="#" class="direction">GET DIRECTION</a>
-                    <a href="#" class="next"
+                    <a
+                      :href="recFood.location"
+                      target="_blank"
+                      class="direction"
+                      >GET DIRECTION</a
+                    >
+                    <a href="#" class="next" @click="counter--"
                       ><i class="fa-solid fa-chevron-right"></i
                     ></a>
                   </div>
@@ -277,6 +292,7 @@
       </div>
     </div>
 
+    <script src="./js/food.js"></script>
     <script src="./js/main.js"></script>
   </body>
 </html>
