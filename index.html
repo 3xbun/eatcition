@@ -13,12 +13,46 @@
     <div id="app">
       <div v-if="loggedIn" id="main">
         <div v-if="active === 'foodMatch'" id="foodMatching">
+          <div id="foodModal" v-if="showFood">
+            <header>
+              <h1>IT'S A MATCH !</h1>
+            </header>
+
+            <div class="container">
+              <ul>
+                <li>
+                  <div class="food-card">
+                    <div class="food-title">
+                      <p>Chicken Burger</p>
+                      <img src="./img/placeholder.png" />
+                    </div>
+                    <div class="food-information">
+                      <p><strong>Restaurant's Name: </strong> Somewhere</p>
+                      <p><strong>Recommended Menu: </strong> Another Menu</p>
+                      <div class="rating">
+                        <strong>Rating: </strong> ⭐⭐⭐⭐
+                      </div>
+                    </div>
+                  </div>
+                  <div class="actions">
+                    <a href="#" class="prev">PREVIOUS</a>
+                    <a href="#" class="call">CALL</a>
+                    <a href="#" class="direction">GET DIRECTION</a>
+                    <a href="#" class="next">NEXT</a>
+                  </div>
+                  <a href="#" class="close" @click="showFood=false">CLOSE</a>
+                </li>
+              </ul>
+            </div>
+          </div>
           <div class="container">
             <h1>Food Matching</h1>
             <div class="type">
               <h1>1</h1>
               <ul>
-                <li>SURPISE ME</li>
+                <li @click="e => e.target.classList.toggle('active')">
+                  SURPISE ME
+                </li>
                 <li>NEW FOOD</li>
                 <li>FOOD YOU LOVE</li>
               </ul>
@@ -39,7 +73,12 @@
               id="searchFood"
               placeholder="🔍 Search your favorite food. . ."
             />
-            <input class="confirmBtn" type="button" value="CONFIRM" />
+            <input
+              class="confirmBtn"
+              type="button"
+              value="CONFIRM"
+              @click="showFood=true"
+            />
           </div>
         </div>
 
@@ -149,10 +188,14 @@
           </div>
         </div>
 
+        <div v-else-if="active === 'stat'" id="stat">
+          <h1>Some stat</h1>
+        </div>
+
         <footer>
           <ul>
             <li @click="active='contact'">👥</li>
-            <li>📊</li>
+            <li @click="active='stat'">📊</li>
             <li @click="active='log'">🍴</li>
             <li @click="active='foodMatch'">🍛</li>
             <li @click="active='profile'">👤</li>
