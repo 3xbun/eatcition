@@ -59,14 +59,45 @@ a {
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
+#log .searchResult {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: -2em auto;
+  padding-bottom: 2em;
+  position: absolute;
+}
+
+#log .searchResult li {
+  padding-bottom: 1em;
+}
+
+#log .searchResult p {
+  width: 20vw;
+  text-align: left;
+  cursor: pointer;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: #e1dcc9;
+  border-radius: 1em;
+  padding: .2em 1em;
+}
+
 #log .menus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin: 2em auto;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2em;
 }
 
 #log .menus .menu {
@@ -75,6 +106,12 @@ a {
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   border-radius: 1em;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+#log .menus .menu:hover {
+  background-color: #c24229;
 }
 
 #log .menus .menu-cost {
@@ -86,8 +123,18 @@ a {
   text-align: left;
 }
 
+#log .menus .menu .food-image {
+  margin-bottom: 1em;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 1em;
+  overflow: hidden;
+  width: 100%;
+  height: 15em;
+}
+
 #log .menus .menu img {
-  width: 80%;
+  height: 100%;
   margin: auto;
 }
 

@@ -152,7 +152,7 @@
                                 <input v-model="username" v-if="showFriend" class="searchFriend" type="search"
                                     placeholder="Search by user ID">
                                 <i v-if="showFriend" class="fa-solid fa-magnifying-glass btn"
-                                    @click="friendList.push('@'+username); username=''"></i>
+                                    @click="friendList.push('@'+username); username=''; showFriend=false"></i>
                             </td>
                         </tr>
                         <tr v-for="user in friendList">
@@ -169,8 +169,18 @@
             <div v-else-if="active === 'log'" id="log">
                 <header>
                     <div class="container">
-                        <input class="searchBar" type="search" name="searchFood" id="searchFood"
-                            placeholder="🔍 Search your favorite food. . ." />
+                        <input v-model="res" class="searchBar" type="search" name="searchFood" id="searchFood"
+                            placeholder="🔍 Search for restaurant. . ." />
+
+                        <ul v-if="res !== ''" class="searchResult">
+
+                            <li @click="res=restaurant.name" class="animate__animated animate__fadeIn"
+                                v-for="restaurant in filterRecFood">
+                                <p v-if="res!=restaurant.name">
+                                    {{restaurant.name}}
+                                </p>
+                            </li>
+                        </ul>
                     </div>
                 </header>
                 <div class="map">
@@ -179,21 +189,20 @@
                         style="border: 0" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <div class="container">
+                <div class="container animate__animated animate__bounceIn"
+                    v-if="res !== '' & filterRecFood.length != 0">
                     <h1>MENU</h1>
                     <div class="menus">
-                        <div class="active menu">
-                            <img src="./img/placeholder.png" alt="burger" />
-                            <p class="menu-title">Chicken Burger</p>
-                            <p class="menu-cost">100THB</p>
-                        </div>
-                        <div class="menu">
-                            <img src="./img/placeholder.png" alt="burger" />
-                            <p class="menu-title">Double Cheesy Burger</p>
-                            <p class="menu-cost">150THB</p>
+                        <div class="menu btn" @click="selectedFood=food"
+                            v-bind:class="{active: food.name==selectedFood.name}" v-for="food in filterRecFood[0].food">
+                            <div class="food-image">
+                                <img :src="'./img/foods/'+food.image" alt="food-image" />
+                            </div>
+                            <p class="menu-title ">{{food.name}}</p>
+                            <p class="menu-cost">0000THB</p>
                         </div>
                     </div>
-                    <input class="confirmBtn" type="button" value="CONFIRM" />
+                    <input @click="active='foodMatch'" class="confirmBtn" type="button" value="CONFIRM" />
                 </div>
             </div>
 

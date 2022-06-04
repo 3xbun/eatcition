@@ -2,14 +2,16 @@ const { createApp, ref, computed } = Vue;
 
 createApp({
   setup() {
-    const loggedIn = ref(true);
-    const active = ref("contact");
+    const loggedIn = ref(false);
+    const active = ref("login");
     const showFood = ref(false);
     let counter = ref(0);
     const one = ref("");
     const two = ref("");
     const showFriend = ref(false);
     const username = ref("");
+    const res = ref("");
+    const selectedFood = ref("");
 
     const friendList = [
       "@abcdefg",
@@ -83,6 +85,12 @@ createApp({
       loggedIn.value = false;
     };
 
+    const filterRecFood = computed(() => {
+      return recommendFood.filter((food) => {
+        return food.name.startsWith(res.value);
+      });
+    });
+
     const recFood = computed(() => {
       if (counter.value >= recommendFood.length) {
         counter.value = 0;
@@ -96,6 +104,7 @@ createApp({
     });
 
     return {
+      selectedFood,
       showFriend,
       username,
       friendList,
@@ -112,6 +121,8 @@ createApp({
       User,
       CreatedUser,
       loginForm,
+      res,
+      filterRecFood,
     };
   },
 }).mount("#app");
