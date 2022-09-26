@@ -748,6 +748,10 @@ li.active {
   color: #e1dcc9 !important;
 }
 
+footer {
+  height: 25vh;
+}
+
 @media only screen and (max-width: 600px) {
   #main #foodMatching .confirmBtn {
     margin-bottom: 15vh;
