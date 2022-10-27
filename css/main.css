@@ -761,6 +761,7 @@ footer {
   }
   #main footer {
     font-size: .8em;
+    max-height: 350px;
   }
 }
 /*# sourceMappingURL=main.css.map */
